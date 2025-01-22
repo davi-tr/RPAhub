@@ -13,17 +13,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/robo")
+@RequestMapping("/rpa")
 public class RoboController {
     @Autowired
     private RoboService roboService;
 
-    @PostMapping("/registerNew")
-    public ResponseEntity<?> registerNew(@RequestBody @Valid RegisterRoboDTO registerRoboDTO){
+    @PostMapping("/createFlow")
+    public ResponseEntity<?> createFlow(@RequestBody @Valid RegisterRoboDTO registerRoboDTO){
         return roboService.registerNew(registerRoboDTO);
     }
-    @GetMapping
-    public ResponseEntity<?> getRobos(@PageableDefault(direction = Sort.Direction.DESC, size = Integer.MAX_VALUE)
+    @GetMapping("/getFlows")
+    public ResponseEntity<?> getFlows(@PageableDefault(direction = Sort.Direction.DESC, size = Integer.MAX_VALUE)
     Pageable paginacao){
         return roboService.getRobos(paginacao);
     }

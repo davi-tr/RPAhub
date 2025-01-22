@@ -16,11 +16,11 @@ public class VmController {
     @Autowired
     private VmService vmService;
 
-    @PostMapping("/registerNew")
+    @PostMapping("/createVm")
     public ResponseEntity<?> registerNew(@RequestBody @Valid RegisterVmDTO registerVmDTO){
         return vmService.registerNew(registerVmDTO);
     }
-    @GetMapping
+    @GetMapping("/getVms")
     public ResponseEntity<?> getVms(@PageableDefault(direction = Sort.Direction.DESC, size = Integer.MAX_VALUE) Pageable paginacao){
         return vmService.getVms(paginacao);
     }
