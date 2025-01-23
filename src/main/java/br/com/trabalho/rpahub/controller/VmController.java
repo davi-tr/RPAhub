@@ -1,6 +1,7 @@
 package br.com.trabalho.rpahub.controller;
 
 import br.com.trabalho.rpahub.dto.RegisterVmDTO;
+import br.com.trabalho.rpahub.dto.UpdateVmDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -23,5 +24,13 @@ public class VmController {
     @GetMapping("/getVms")
     public ResponseEntity<?> getVms(@PageableDefault(direction = Sort.Direction.DESC, size = Integer.MAX_VALUE) Pageable paginacao){
         return vmService.getVms(paginacao);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteVm(@PathVariable String id){
+        return vmService.deleteVm(id);
+    }
+    @PutMapping("/updateVm")
+    public ResponseEntity<?> updateVm(@RequestBody @Valid UpdateVmDTO updateVmDTO){
+        return vmService.updateVm(updateVmDTO);
     }
 }

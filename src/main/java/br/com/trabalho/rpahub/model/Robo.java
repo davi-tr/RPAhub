@@ -51,6 +51,9 @@ public class Robo implements Serializable {
         this.responsavel = responsavel;
     }
 
+    public void desalocarMaquina(VM maquina) {
+        this.maquinaAlocada.remove(maquina);
+    }
     public void setMaquinaAlocada(VM maquina) {
         this.maquinaAlocada.add(maquina);
     }
